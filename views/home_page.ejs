@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter-like Page</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/emoji-mart@2.2.0/dist/index.min.js"></script>
+</head>
+
+<body>
+    <h1>Welcome, <%= user.username %>
+    </h1>
+    <!-- <p>
+        Token: <%= user.refreshtoken %>
+    </p> -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home_page.ejs">Home</a></li>
+                <li><a href="#">Notifications</a></li>
+                <li><a href="#">Messages</a></li>
+                <li><a href="#">Profile</a></li>
+                <li>
+                    <form id="logout-form" action="/auth/logout" method="post">
+                        <button id="logout-btn">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="new-tweet">
+            <h2>New Tweet</h2>
+            <form id="new-tweet-form">
+                <textarea id="tweet-input" placeholder="What's happening?"></textarea>
+
+                <button id="tweet-btn">Tweet</button>
+            </form>
+        </section>
+        <section class="tweets">
+            <h2>Tweets</h2>
+            <ul id="post-list">
+
+            </ul>
+        </section>
+
+    </main>
+    <script>
+        var userRefreshToken = '<%= user.refreshtoken %>';
+        var userEmail = '<%= user.email %>'
+        var username = '<%= user.username %>'
+
+    </script>
+    <script src="/models/scripts/script.js"></script>
+</body>
+
+</html>
